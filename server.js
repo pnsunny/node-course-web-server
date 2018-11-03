@@ -15,8 +15,9 @@ hbs.registerHelper('getCurrentYear', ()=> {
 app.use(express.static(__dirname + '/public'))
 
 app.use((req, res, next)=> {
-    console.log('MidleWare')
-    res.render('maintain')
+    console.log('MidleWares')
+     res.render('maintain')
+    // next();
 })
 app.get('/', (req, res) => {
     // console.log('Hello Word!');
@@ -36,9 +37,10 @@ res.render('about.hbs', {
 });
 
 })
+const port = process.env.PORT || 3000;
 
 //Connect app with machine
 
-app.listen(3000, ()=> {
-    console.log('Server is up on port 3000')
+app.listen(port, ()=> {
+    console.log(`Server is up on port ${port}`)
 })
