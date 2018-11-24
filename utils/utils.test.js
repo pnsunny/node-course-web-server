@@ -1,16 +1,23 @@
 const utils = require('./utils');
+const expect = require('expect')
 
-it('should add 2 number',() => {
+
+test('should add 2 number', () => {
     const sum = utils.add(2, 4);
-    if(sum != 6) {
-        throw new Error(`Expected 6 , but got ${sum}`)
-    }
+    expect(sum).toBe(6);
 })
 
-it('should square a number', () => {
+test('should square a number', () => {
     const square = utils.square(2);
-    if(square != 4) {
-        throw new Error(`Expected 4, but got ${square}`)
-    }
+    expect(square).toBe(4);
+})
+
+test('should add 2 number by async function', (done) => {
+    utils.asyncAdd(2, 2, (sum) => {
+        expect(sum).toBe(4);
+        done();
+    })
+
+
 })
 
